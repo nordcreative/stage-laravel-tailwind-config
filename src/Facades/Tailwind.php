@@ -1,6 +1,6 @@
 <?php
 
-namespace ApprovedDigital\LaravelTailwindConfig\Facades;
+namespace Stage\aravelTailwindConfig\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

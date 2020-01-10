@@ -1,29 +1,34 @@
 # Laravel Tailwind Config
 
-I've recently found myself using Tailwind more and more but have run into a few situations where I need to access tailwind config values within my blade templates. The most recent event occurred when building a admin section and i needed to access a color defined within the tailwind config file to pass to a charting library. Instead of hardcoding the value I decided to create this library
+This is a fork form [approvedio/laravel-mix-export-tailwind-config](https://github.com/approvedio/laravel-mix-export-tailwind-config) to use with [Roots Sage](https://roots.io/sage) > 10 or the [ouun.io Stage Framework](https://ouun.io/stage).
+The original author [Michael Boffey](https://github.com/boffey) described it like this:
+
+"I've recently found myself using Tailwind more and more but have run into a few situations where I need to access tailwind config values within my blade templates. The most recent event occurred when building a admin section and i needed to access a color defined within the tailwind config file to pass to a charting library. Instead of hardcoding the value I decided to create this library."
 
 ## Installation
 
 ```bash
-composer require approvedio/laravel-tailwind-config
+composer require ouun/laravel-tailwind-config
 ```
 
-### Laravel 5.5+
+### Publish Config
+
+```
+$ wp acorn vendor:publish --provider="Stage\LaravelTailwindConfig\LaravelTailwindConfigServiceProvider"
+```
 
 The application service provider and facade will be automatically registered for you.
 
-### Laravel 5.4 and Below
+Or add the service provider to your app.php config file
 
-Add the service provider to your app.php config file
-
-```
-ApprovedDigital\LaravelTailwindConfig\LaravelTailwindConfigServiceProvider::class,
+```php
+Stage\LaravelTailwindConfig\LaravelTailwindConfigServiceProvider::class,
 ```
 
 Optionally you can add the facade to the Aliases section of your app.php config file
 
-```
-'Tailwind' => ApprovedDigital\LaravelTailwindConfig\Facades\LaravelTailwindConfigFacade::class.
+```php
+'Tailwind' => Stage\aravelTailwindConfig\Facades\Tailwind::class,
 ```
 
 ## Usage
@@ -48,7 +53,7 @@ By default we assume your tailwind config file is called tailwind.json in the ro
 'cache_path' => base_path('tailwind.json'),
 ```
 
-To generate the tailwind.json file from your config you will need to add the following Mix extension to your webpack.mix.js
+To generate the tailwind.json file from your config you will either need to use a Webpack export package such as [this one](https://github.com/approvedio/laravel-mix-export-tailwind-config) or add the following Mix extension to your webpack.mix.js:
 
 ```js
 mix.extend('exportTailwindConfig', function(webpackConfig, configPath = './tailwind.js') {
@@ -59,13 +64,8 @@ mix.extend('exportTailwindConfig', function(webpackConfig, configPath = './tailw
     fs.writeFile('./tailwind.json', json);
 });
 ```
-
 And then call the following mix function to generate this file
 
 ```js
 mix.exportTailwindConfig('./tailwind.js');
 ```
-
-##Future Development
-
-- Extract Tailwind Config Extractor into a dedicated package and less janky package

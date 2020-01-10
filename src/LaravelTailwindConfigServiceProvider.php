@@ -1,6 +1,6 @@
 <?php
 
-namespace ApprovedDigital\LaravelTailwindConfig;
+namespace Stage\LaravelTailwindConfig;
 
 use Illuminate\Support\ServiceProvider;
 

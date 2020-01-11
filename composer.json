@@ -1,6 +1,6 @@
 {
     "name": "ouun/laravel-tailwind-config",
-    "description": "Get access to the tailwind config values in your Laravel Project",
+    "description": "Get access to the tailwind config values in your Sage & Stage Project",
     "license": "MIT",
     "authors": [
         {
@@ -22,16 +22,16 @@
             "src/helpers.php"
         ],
         "psr-4": {
-            "Stage\\LaravelTailwindConfig\\": "src/"
+            "Stage\\Tailwind\\": "src/"
         }
     },
     "extra": {
         "acorn": {
             "providers": [
-                "Stage\\LaravelTailwindConfig\\LaravelTailwindConfigServiceProvider"
+                "Stage\\Tailwind\\TailwindServiceProvider"
             ],
             "aliases": {
-                "Tailwind": "Stage\\LaravelTailwindConfig\\Facades\\Tailwind"
+                "Tailwind": "Stage\\Tailwind\\Facades\\Tailwind"
             }
         }
     }

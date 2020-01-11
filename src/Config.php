@@ -1,14 +1,13 @@
 <?php
 
-namespace Stage\LaravelTailwindConfig;
+namespace Stage\Tailwind;
 
 use Illuminate\Support\Arr;
-use function \Roots\config;
 
-class Tailwind {
+class Config {
 
     protected $config;
-	protected $tailwindValues;
+	protected $tailwindConfig;
 
 	/**
 	 * Initialize Tailwind
@@ -19,7 +18,7 @@ class Tailwind {
 	public function __construct($config = [])
 	{
 		$this->config = collect($this->config)->merge($config);
-		$this->tailwindValues = json_decode(file_get_contents($this->config('cache_path')), true);
+		$this->tailwindConfig = json_decode( file_get_contents( $this->config["cache_path"] ), true );
 	}
 
 	/**
@@ -32,17 +31,16 @@ class Tailwind {
 	 */
     public function get($key = null, $default = null)
     {
-        return Arr::get($this->tailwindValues, $key, $default);
+        return Arr::get($this->tailwindConfig, $key, $default);
     }
 
 	/**
-	 * Get config from tailwind.json
+	 * Return the services config.
 	 *
-	 * @param $key
-	 *
-	 * @return mixed|\Roots\Acorn\Config
+	 * @return array
 	 */
-    public function config( $key ) {
-		return config( 'tailwind.'. $key );
-    }
+	public function config()
+	{
+		$this->config = $this->app->config->get('tailwind', []);
+	}
 }

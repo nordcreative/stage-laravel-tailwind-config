@@ -1,13 +1,15 @@
 <?php
 
-if (!function_exists('tailwind')) {
-    function tailwind($key = null, $default = null)
-    {
-        if (is_null($key)) {
-            return app('tailwind');
-        }
+use Stage\LaravelTailwindConfig\Tailwind;
 
-        return app('tailwind')->get($key, $default);
-    }
+use function Roots\app;
+
+if ( ! function_exists( 'tailwind' ) ) {
+	function tailwind( $key = null, $default = null ) {
+		if ( is_null( $key ) ) {
+			return app( 'tailwind' );
+		}
+
+		return app( 'tailwind' )->get( $key, $default );
+	}
 }
-

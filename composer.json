@@ -1,5 +1,5 @@
 {
-    "name": "ouun/laravel-tailwind-config",
+    "name": "ouun/stage-laravel-tailwind-config",
     "description": "Get access to the tailwind config values in your Sage & Stage Project",
     "license": "MIT",
     "authors": [
@@ -9,7 +9,7 @@
         },
         {
             "name": "Philipp Wellmer",
-            "email": "philipp@wellmer.com"
+            "email": "philipp@ouun.io"
         }
     ],
     "require": {

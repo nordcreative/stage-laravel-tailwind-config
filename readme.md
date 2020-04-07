@@ -1,6 +1,6 @@
 # Laravel Tailwind Config
 
-This is a fork form [approvedio/laravel-mix-export-tailwind-config](https://github.com/approvedio/laravel-mix-export-tailwind-config) to use with [Roots Sage](https://roots.io/sage) > 10).
+This is a fork form [approvedio/laravel-mix-export-tailwind-config](https://github.com/approvedio/laravel-mix-export-tailwind-config) to use with [Roots Sage](https://roots.io/sage) > 10 & Stage.
 The original author [Michael Boffey](https://github.com/boffey) described it like this:
 
 "I've recently found myself using Tailwind more and more but have run into a few situations where I need to access tailwind config values within my blade templates. The most recent event occurred when building a admin section and i needed to access a color defined within the tailwind config file to pass to a charting library. Instead of hardcoding the value I decided to create this library."
@@ -8,7 +8,7 @@ The original author [Michael Boffey](https://github.com/boffey) described it lik
 ## Installation
 
 ```bash
-composer require ouun/laravel-tailwind-config
+composer require ouun/stage-laravel-tailwind-config
 ```
 
 ### Publish Config
@@ -25,10 +25,10 @@ Or add the service provider to your app.php config file
 Stage\Tailwind\TailwindServiceProvider::class,
 ```
 
-Optionally you can add the facade to the Aliases section of your app.php config file
+Optionally you can add the alias to the Aliases section of your app.php config file
 
 ```php
-'Tailwind' => Stage\Tailwind\Facades\Tailwind::class
+'Tailwind' => Stage\Tailwind\Facades\Tailwind::class,
 ```
 
 ## Usage

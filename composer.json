@@ -1,5 +1,5 @@
 {
-    "name": "ouun/stage-laravel-tailwind-config",
+    "name": "nordcreative/stage-laravel-tailwind-config",
     "description": "Get access to the tailwind config values in your Sage & Stage Project",
     "license": "MIT",
     "authors": [
@@ -15,7 +15,7 @@
     "require": {
         "php": ">=7.2",
         "ext-json": "*",
-        "illuminate/support": "^7.0"
+        "illuminate/support": "^8.0"
     },
     "autoload": {
         "files": [
